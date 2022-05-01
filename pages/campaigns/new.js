@@ -12,7 +12,7 @@ export class CampaignNew extends Component {
     loading: false,
   };
 
-  onSubmit = async (evt) => {
+  onSubmit = async (event) => {
     // console.log(evt);
     event.preventDefault();
     this.setState({ loading: true, errorMessage: '' });
@@ -41,8 +41,8 @@ export class CampaignNew extends Component {
               label='wei'
               labelPosition='right'
               value={this.state.minimumContribution}
-              onChange={(evt) =>
-                this.setState({ minimumContribution: evt.target.value })
+              onChange={(event) =>
+                this.setState({ minimumContribution: event.target.value })
               }
             />
           </Form.Field>

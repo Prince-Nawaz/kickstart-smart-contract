@@ -50,8 +50,10 @@ contract Campaign {
     function contribute() public payable {
         require(msg.value > minimumContribution, 'The value doesn\'t meet the minimum contribution');
         // approvers.push(msg.sender);
-        approvers[msg.sender] = true;
-        approversCount++;
+        if (!approvers[msg.sender]) {
+                approvers[msg.sender] = true;
+                approversCount++;
+        }
     }
 
     function createRequest(string memory description, uint value, address recipient) public restricted {
